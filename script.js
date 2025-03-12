@@ -1,6 +1,8 @@
 let firstNumber = 0;
-let operator = '';
-let secondNumber = 0;
+let secondNumber = null;
+let operator = null;
+let secondOperator = null;
+let resultado = null;
 let conta = [];
 
 const tela = document.querySelector(".tela");
@@ -16,9 +18,13 @@ botoesNumero.forEach(button => {
             tela.textContent = button.textContent;
             limpar();
         }
+        if (conta.includes("continuado")) {
+            tela.textContent = button.textContent;
+            conta.splice(0);
+            conta.push(firstNumber);
+        }
 
         if (conta.includes(firstNumber)) {
-            tela.innerHTML - '';
             secondNumber = +tela.textContent;
             console.log({secondNumber});
         } else {
@@ -30,29 +36,56 @@ botoesNumero.forEach(button => {
 
 botoesOperacao.forEach(button => {
     button.addEventListener("click", () => {
-        operator = button.textContent;
-        conta.push(firstNumber);
+        if (operator === null) {
+            operator = button.textContent;
+        } else {
+            secondOperator = button.textContent;
+        }
+        
         tela.innerHTML = '';
+        
+        if (conta.length >= 3) {
+            conta.splice(0);
+            conta.push(firstNumber);
+        }
+
+        if (conta.length === 1) {
+            resultado = operate(firstNumber, operator, secondNumber);
+            tela.textContent = resultado;
+            firstNumber = resultado;
+            conta.push("continuado");
+            conta.push(resultado);
+        }
+
+        if (!conta.includes(firstNumber)) {
+            conta.push(firstNumber);
+        }
+
         console.log({operator});
+        console.log({secondOperator});
     })
 })
 
 botaoLimpar.addEventListener("click", () => {
     tela.innerHTML = '';
-    limpar()
+    limpar();
 })
 
 botaoResultado.addEventListener("click", () => {
-    tela.textContent = operate(firstNumber, operator, secondNumber);
-    firstNumber = operate(firstNumber, operator, secondNumber);
+    let resultado = operate(firstNumber, operator, secondNumber);
+    tela.textContent = resultado;
+    firstNumber = resultado;
     conta.push("calculado");
+    conta.push(resultado);
 })
 
 function limpar() {
-    firstNumber = 0;
-    operator = '';
-    secondNumber = 0;
+    firstNumber = null;
+    operator = null;
+    secondOperator = null;
+    secondNumber = null;
     conta = [];
+    resultado = null;
 }
 
 function add(a, b) {
