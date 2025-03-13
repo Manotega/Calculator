@@ -5,71 +5,111 @@
     margin: 0;
 }
 
-body {
+:root {
+    --cor-botao-1: #253C78;
+    --botao-1-ativo: #3254ac;
+    --cor-botao-2: #ff9b18;
+    --botao-2-ativo: #ffb14b;
+    --cor-botao-3: #4A7C59;
+    --botao-3-ativo: #62A174;
+}
+
+html {
     font-family: monospace;
     font-weight: 600;
+    background-color: bisque;
 }
 
 .calculadora {
-    margin: 15em 50em;
+    margin: 15em 55em;
+    padding: 3px 5px 8px;
     width: fit-content;
-    border: rgb(56, 56, 56) solid 5px;
+    border: #353B3C solid 10px;
     border-radius: 8px;
     background-color: black;
     display: grid;
-    grid-template-columns: repeat(4, 5em);
-    grid-template-rows: repeat(5, 5em);
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+    gap: 5px;
 }
 
 .tela {
     grid-area: 1 / 1 / 2 / 5;
-    border: black solid 2px;
+    border: black solid 3px;
     border-radius: 8px;
     text-align: end;
-    padding: 0.8em 0.5em;
-    font-size: 24px;
+    padding: 0.25em;
+    font-size: 56px;
     background-color: rgb(177, 177, 177);
 }
 
 .botao {
+    font-family: monospace;
+    font-weight: 500;
     color: white;
-    font-size: 12px;
+    font-size: 24px;
     text-align: center;
-    margin: auto;
-    padding: 1.9em;
-    width: 5em;
     border: none;
     border-radius: 4px;
 }
 
 .botao-numero {
-    background-color: darkblue;
+    background-color: var(--cor-botao-1);
 }
 
 .botao:active {
-    background-color: blue;    
+    background-color: var(--botao-1-ativo);    
 }
 
 .botao-operacao {
-    background-color: green;
+    background-color: var(--cor-botao-3);
 }
 
 .botao-operacao:focus {
-    background-color: greenyellow;
+    background-color: var(--botao-3-ativo);
+    color: #353B3C;
 }
 
 .botao-clear {
-    background-color: orange;    
+    background-color: var(--cor-botao-2);    
 }
 
 .botao-clear:active{
-    background-color: coral;
+    background-color: var(--botao-2-ativo);
 }
 
 .botao-resultado {
-    background-color: orange;
+    background-color: var(--cor-botao-3);
 }
 
-.botao-resultado:active{
-    background-color: coral;
+.botao-resultado:active {
+    background-color: var(--botao-3-ativo);
+}
+
+.botao-0 {
+    grid-area: 6 / 1 / 7 / 3;
+}
+
+.botao-decimal {
+    background-color: var(--cor-botao-1);
+}
+
+.botao-decimal:active {
+    background-color: var(--botao-1-ativo);
+}
+
+.botao-sinal {
+    background-color: var(--cor-botao-2);
+}
+
+.botao-sinal:active {
+    background-color: var(--botao-2-ativo);
+}
+
+.botao-porcentagem {
+    background-color: var(--cor-botao-2);
+}
+
+.botao-porcentagem:active {
+    background-color: var(--botao-2-ativo);
 }
