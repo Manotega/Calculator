@@ -20,8 +20,16 @@ html {
     background-color: bisque;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
 .calculadora {
-    margin: 15em 55em;
     padding: 3px 5px 8px;
     width: fit-content;
     border: #353B3C solid 10px;
