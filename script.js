@@ -16,6 +16,38 @@ const botaoDecimal = document.querySelector(".botao-decimal");
 const botaoSinal = document.querySelector(".botao-sinal");
 const botaoPorcentagem = document.querySelector(".botao-porcentagem");
 
+document.addEventListener("keydown", event => {
+    const key = event.key;
+    // Numeros
+    if (!isNaN(key)) {
+        document.querySelector(`.botao-numero[data-key="${key}"]`)?.click();
+    }
+    // Operadores
+    if (key === "+" || key === "-" || key === "x" || key === "/") {
+        document.querySelector(`.botao-operacao[data-key="${key}"]`)?.click();
+    }
+    // Resultado
+    if (key === "Enter" || key === "=") {
+        botaoResultado.click();
+    }
+    // Limpar
+    if (key === "Backspace") {
+        botaoLimpar.click();
+    }
+    // Ponto decimal
+    if (key === ".") {
+        botaoDecimal.click();
+    }
+    // Inverter sinal
+    if (key === "_" || key === "n"){
+        botaoSinal.click();
+    }
+    // Porcentagem
+    if (key === "%") {
+        botaoPorcentagem.click();
+    }
+})
+
 botoesNumero.forEach(button => {
     button.addEventListener("click", () => {
         // Substitui o valor inicial pelo primeiro valor clicado
