@@ -108,10 +108,11 @@ botaoResultado.addEventListener("click", () => {
 })
 
 botaoDecimal.addEventListener("click", () => {
+    // Evita que a calculadora reinicie quando tenta tornar o resultado em decimal
     if (isResultGiven) {
         isResultGiven = false;
     }
-    
+    // Adiciona o ponto decimal no final do numero
     if (!tela.textContent.includes(".")) {
         let formatado = formatarResultado(+tela.textContent);
         tela.textContent = `${formatado}.`
@@ -119,7 +120,9 @@ botaoDecimal.addEventListener("click", () => {
 })
 
 botaoSinal.addEventListener("click", () => {
+    // Inverte o sinal do numero
     tela.textContent = -tela.textContent;
+
     if (secondNumber === null) {
         firstNumber = +tela.textContent;
     } else {
@@ -128,6 +131,7 @@ botaoSinal.addEventListener("click", () => {
 })
 
 botaoPorcentagem.addEventListener("click", () => {
+    // Transforma o numero em porcentagem e "arredonda"
     tela.textContent = formatarResultado(tela.textContent * 0.01);
     if (secondNumber === null) {
         firstNumber = +tela.textContent;
