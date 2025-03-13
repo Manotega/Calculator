@@ -6,14 +6,16 @@
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: monospace;
     font-weight: 600;
 }
 
 .calculadora {
     margin: 15em 50em;
     width: fit-content;
-    border: black solid 2px;
+    border: rgb(56, 56, 56) solid 5px;
+    border-radius: 8px;
+    background-color: black;
     display: grid;
     grid-template-columns: repeat(4, 5em);
     grid-template-rows: repeat(5, 5em);
@@ -21,23 +23,53 @@ body {
 
 .tela {
     grid-area: 1 / 1 / 2 / 5;
-    border-bottom: black solid 2px;
-    text-align: center;
-    padding: 2em 0;
+    border: black solid 2px;
+    border-radius: 8px;
+    text-align: end;
+    padding: 0.8em 0.5em;
+    font-size: 24px;
+    background-color: rgb(177, 177, 177);
 }
 
 .botao {
     color: white;
-    font-size: 16px;
+    font-size: 12px;
     text-align: center;
     margin: auto;
-    padding: 1.75em;
-    width: 4.5em;
+    padding: 1.9em;
+    width: 5em;
     border: none;
-    border-radius: 100em;
-    background-color: gray;
+    border-radius: 4px;
+}
+
+.botao-numero {
+    background-color: darkblue;
+}
+
+.botao:active {
+    background-color: blue;    
+}
+
+.botao-operacao {
+    background-color: green;
+}
+
+.botao-operacao:focus {
+    background-color: greenyellow;
 }
 
 .botao-clear {
-    color: orange;
+    background-color: orange;    
+}
+
+.botao-clear:active{
+    background-color: coral;
+}
+
+.botao-resultado {
+    background-color: orange;
+}
+
+.botao-resultado:active{
+    background-color: coral;
 }
